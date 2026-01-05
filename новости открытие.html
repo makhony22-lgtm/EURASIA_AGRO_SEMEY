@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие мясоперерабатывающего комплекса - Eurasia Agro Semey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #f8f9fa;
+            padding-top: 1rem;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 1rem;
+            z-index: 1000;
+            margin: 0 2rem;
+            border-radius: 16px;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0.5rem 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007549;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #007549;
+            background: rgba(0, 117, 73, 0.06);
+        }
+
+        .breadcrumbs {
+            max-width: 900px;
+            margin: 3rem auto 2rem;
+            padding: 0 3rem;
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .breadcrumbs a {
+            color: #718096;
+            text-decoration: none;
+        }
+
+        .article-header {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 3rem;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(0, 117, 73, 0.1);
+            color: #007549;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: #718096;
+        }
+
+        .featured-image {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 3rem;
+        }
+
+        .featured-image-container {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 117, 73, 0.15);
+        }
+
+        .article-content {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 3rem;
+        }
+
+        .article-intro {
+            font-size: 1.25rem;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.9;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin: 3rem 0 1.5rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #007549;
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 1.15rem;
+            font-style: italic;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 117, 73, 0.08) 0%, rgba(0, 160, 102, 0.08) 100%);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            border: 2px solid rgba(0, 117, 73, 0.15);
+        }
+
+        .highlight-box h3 {
+            color: #007549;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+        }
+
+        .highlight-box li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+        }
+
+        .highlight-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #007549;
+            font-weight: bold;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .image-item {
+            height: 300px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .image-full {
+            grid-column: 1 / -1;
+            height: 400px;
+        }
+
+        .related-news {
+            background: #f8f9fa;
+            padding: 5rem 3rem;
+            margin-top: 5rem;
+        }
+
+        .related-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .related-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s ease;
+        }
+
+        .related-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,117,73,0.15);
+        }
+
+        .related-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .related-content {
+            padding: 1.8rem;
+        }
+
+        .related-date {
+            color: #718096;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .related-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #718096;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: rgba(0, 117, 73, 0.5);
+        }
+
+        .language-btn.active {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: #007549;
+            font-weight: 600;
+        }
+
+        @media (max-width: 968px) {
+            header {
+                margin: 0 1rem;
+            }
+
+            nav {
+                padding: 1rem 0.5rem 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .language-switcher {
+                margin-left: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+                gap: 0;
+                align-items: stretch;
+                border-radius: 16px;
+                margin-top: 0.5rem;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 117, 73, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                margin: 0.2rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                background: rgba(0, 117, 73, 0.1);
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: #007549;
+                padding: 0.5rem;
+                border-radius: 12px;
+            }
+
+            .breadcrumbs {
+                padding: 0 2rem;
+                margin: 2rem auto 1.5rem;
+            }
+
+            .article-header {
+                padding: 0 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-image {
+                padding: 0 2rem;
+            }
+
+            .featured-image-container {
+                height: 400px;
+            }
+
+            .article-content {
+                padding: 0 2rem;
+                margin: 3rem auto;
+            }
+
+            .article-intro {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .article-body {
+                font-size: 1rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.7rem;
+                margin: 2rem 0 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .image-item {
+                height: 250px;
+            }
+
+            .related-news {
+                padding: 4rem 2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .related-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .language-switcher {
+                margin-left: 0.5rem;
+            }
+
+            .language-btn {
+                padding: 0.15rem 0.4rem;
+                font-size: 0.75rem;
+                min-width: 35px;
+            }
+
+            .breadcrumbs {
+                padding: 0 1.5rem;
+                margin: 1.5rem auto 1rem;
+                font-size: 0.85rem;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .article-category {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.7rem;
+                margin-bottom: 1rem;
+            }
+
+            .article-meta {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .featured-image {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+
+            .featured-image-container {
+                height: 300px;
+            }
+
+            .article-content {
+                padding: 0 1.5rem;
+                margin: 2.5rem auto;
+            }
+
+            .article-intro {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .article-body {
+                font-size: 0.95rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1rem;
+            }
+
+            .article-body blockquote {
+                padding: 1.2rem 1.5rem;
+                margin: 2rem 0;
+                font-size: 1rem;
+            }
+
+            .highlight-box {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .highlight-box h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .image-grid {
+                gap: 1.2rem;
+                margin: 2rem 0;
+            }
+
+            .image-item {
+                height: 220px;
+            }
+
+            .image-full {
+                height: 280px;
+            }
+
+            .related-news {
+                padding: 3rem 1.5rem;
+            }
+
+            .related-title {
+                font-size: 1.7rem;
+                margin-bottom: 2rem;
+            }
+
+            .related-image {
+                height: 180px;
+            }
+
+            .related-content {
+                padding: 1.5rem;
+            }
+
+            .related-card h3 {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a {
+                padding: 1rem 1.25rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .related-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 73, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 117, 73, 0.4);
+            background: linear-gradient(135deg, #00a066 0%, #007549 100%);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile adjustments for scroll button */
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="main.html" class="logo">EURASIA AGRO SEMEY</a>
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
+                    <li><a href="ответственность.html" data-translate="navigation_menu_responsibility">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html" data-translate="navigation_menu_activity">Вид деятельности</a></li>
+                    <li><a href="Новости.html" class="active" data-translate="navigation_menu_news">Новости</a></li>
+                    <li><a href="Вакансии.html" data-translate="navigation_menu_vacancies">Вакансии</a></li>
+                    <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
+                    <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <a href="main.html">Главная</a> / <a href="Новости.html">Новости</a> / Открытие комплекса
+    </div>
+
+    <article>
+        <div class="article-header">
+            <span class="article-category">Главное событие</span>
+            <h1>Торжественное открытие современного мясоперерабатывающего комплекса в регионе Абай</h1>
+            <div class="article-meta">
+                <span>📅 18 декабря 2024</span>
+                <span>⏱️ 5 минут чтения</span>
+            </div>
+        </div>
+
+        <div class="featured-image">
+            <div class="featured-image-container">
+                [Главное фото: Торжественная церемония открытия]
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p class="article-intro">
+                Сегодня в селе Чекоман Абайской области состоялось торжественное открытие мясоперерабатывающего комплекса Eurasia Agro Semey. Это значимое событие для всего региона знаменует начало новой эры в развитии местной пищевой промышленности.
+            </p>
+
+            <div class="article-body">
+                <h2>Важная веха для региона</h2>
+                <p>
+                    На церемонии открытия присутствовали представители акимата Абайской области, партнеры компании, местные фермеры и будущие сотрудники предприятия. В своем приветственном слове руководство компании подчеркнуло важность этого проекта для экономического развития региона.
+                </p>
+
+                <blockquote>
+                    "Это не просто новое предприятие — это инвестиция в будущее нашего региона, в людей и в развитие современных технологий производства."
+                </blockquote>
+
+                <h2>Современное производство</h2>
+                <p>
+                    Мясоперерабатывающий комплекс оснащен оборудованием ведущих европейских производителей, что позволяет обеспечить высочайшее качество продукции и соблюдение всех международных стандартов.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>Ключевые характеристики комплекса:</h3>
+                    <ul>
+                        <li>Производственная мощность до 120 тонн переработки в сутки</li>
+                        <li>Современные холодильные камеры объемом более 5000 тонн</li>
+                        <li>Автоматизированные линии упаковки и маркировки</li>
+                        <li>Собственная лаборатория контроля качества</li>
+                        <li>Система полной прослеживаемости продукции</li>
+                        <li>Сертификация по стандартам HACCP и ISO 22000</li>
+                    </ul>
+                </div>
+
+                <h2>Создание рабочих мест</h2>
+                <p>
+                    Одним из ключевых аспектов проекта является создание более 500 новых рабочих мест для жителей региона. Компания уделяет особое внимание обучению и развитию персонала.
+                </p>
+
+                <div class="image-grid">
+                    <div class="image-item">[Фото: Производственный цех]</div>
+                    <div class="image-item">[Фото: Обучение персонала]</div>
+                </div>
+
+                <h2>Партнерство с местными фермерами</h2>
+                <p>
+                    Важной частью бизнес-модели является тесное сотрудничество с местными фермерскими хозяйствами. Уже заключены долгосрочные контракты с более чем 150 фермерами региона.
+                </p>
+
+                <div class="image-grid">
+                    <div class="image-item image-full">[Фото: Партнеры на церемонии]</div>
+                </div>
+
+                <h2>Планы на будущее</h2>
+                <p>
+                    Руководство компании поделилось планами развития на ближайшие годы. Планируется расширение ассортимента продукции, внедрение новых технологий и выход на экспортные рынки стран ЕАЭС.
+                </p>
+            </div>
+        </div>
+    </article>
+
+    <section class="related-news">
+        <div class="related-container">
+            <h2 class="related-title">Читайте также</h2>
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <div class="related-image">[Фото: Оборудование]</div>
+                    <div class="related-content">
+                        <div class="related-date">15 декабря 2024</div>
+                        <h3>Завершена установка европейского оборудования</h3>
+                    </div>
+                </a>
+                <a href="#" class="related-card">
+                    <div class="related-image">[Фото: Команда]</div>
+                    <div class="related-content">
+                        <div class="related-date">10 декабря 2024</div>
+                        <h3>Формирование профессиональной команды</h3>
+                    </div>
+                </a>
+                <a href="#" class="related-card">
+                    <div class="related-image">[Фото: Сертификаты]</div>
+                    <div class="related-content">
+                        <div class="related-date">15 ноября 2024</div>
+                        <h3>Получена международная сертификация</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EURASIA AGRO SEMEY</h3>
+                <p>Высококачественная мясная продукция для Казахстана и мира</p>
+            </div>
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <ul>
+                    <li><a href="main.html">О нас</a></li>
+                    <li><a href="main.html#leadership">Руководство</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="ответственность.html">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
+                    <li><a href="Новости.html">Новости</a></li>
+                    <li><a href="Вакансии.html">Вакансии</a></li>
+                    <li><a href="Контакты.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>БИН: 160740001659</p>
+                <p>село Чекоман, Абайская область</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+    
+    <!-- Подключаем систему переводов -->
+    <script src="translations.js"></script>
+</body>
+</html>

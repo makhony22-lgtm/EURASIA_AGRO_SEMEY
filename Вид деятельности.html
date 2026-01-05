@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurasia Agro Semey - Вид деятельности</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            font-weight: 400;
+            background: #f8f9fa;
+            padding-top: 0;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin: 1rem 2rem 0;
+            border-radius: 16px;
+        }
+
+        nav {
+            max-width: none;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem 1rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007549;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .logo:hover {
+            color: #00a066;
+            transform: translateY(-1px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #007549;
+            background: rgba(0, 117, 73, 0.06);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: rgba(0, 117, 73, 0.5);
+        }
+
+        .language-btn.active {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: #007549;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 117, 73, 0.1);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #007549;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 117, 73, 0.15);
+            transform: scale(1.05);
+        }
+
+
+
+        /* Split Hero Section */
+        .split-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            position: relative;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .hero-side {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .hero-side:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .hero-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        /* Hide any auto-generated text overlays */
+        .hero-side::before,
+        .hero-side::after {
+            font-size: 0 !important;
+            text-indent: -9999px !important;
+        }
+
+        /* Ensure no text is visible on background images */
+        .hero-left::before,
+        .hero-right::before {
+            color: transparent !important;
+            text-shadow: none !important;
+        }
+
+        .hero-side:hover::before {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        .hero-side::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .hero-side:hover::after {
+            opacity: 1;
+        }
+
+        .hero-left::before {
+            background-image: 
+                linear-gradient(135deg, rgba(0, 117, 73, 0.4) 0%, rgba(0, 160, 102, 0.3) 100%),
+                url('фото4.png');
+            background-size: cover, cover;
+            background-position: center center, center center;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: scroll, scroll;
+        }
+
+        .hero-right::before {
+            background-image: 
+                linear-gradient(135deg, rgba(252, 183, 20, 0.4) 0%, rgba(255, 140, 0, 0.3) 100%),
+                url('фото2.png');
+            background-size: cover, cover;
+            background-position: center center, center center;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: scroll, scroll;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 3rem;
+            max-width: 500px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-side:hover .hero-content {
+            transform: translateY(-10px);
+        }
+
+        .hero-content h2 {
+            transition: all 0.3s ease;
+        }
+
+        .hero-side:hover .hero-content h2 {
+            transform: scale(1.05);
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            display: block;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #007549;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-top: 1rem;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-right .hero-btn {
+            color: #fcb714;
+        }
+
+        .hero-side:hover .hero-btn {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Detail Section */
+        .detail-section {
+            padding: 8rem 3rem;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+        }
+
+        .detail-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .detail-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 10rem;
+        }
+
+        .detail-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-block.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .detail-block.reverse .detail-image {
+            order: 2;
+        }
+
+        .detail-block.reverse .detail-content {
+            order: 1;
+        }
+
+        .detail-image {
+            position: relative;
+        }
+
+        .detail-image-main {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 20px 60px rgba(0,117,73,0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .detail-image-main:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0,117,73,0.3);
+        }
+
+        .detail-image-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-image-main:hover img {
+            transform: scale(1.05);
+        }
+
+        .detail-image-small {
+            position: absolute;
+            width: 280px;
+            height: 200px;
+            background: linear-gradient(135deg, #fcb714 0%, #ff8c00 100%);
+            border-radius: 12px;
+            bottom: -40px;
+            right: -40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 15px 45px rgba(252, 183, 20, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .detail-image-small:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 55px rgba(252, 183, 20, 0.4);
+        }
+
+        .detail-image-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-image-small:hover img {
+            transform: scale(1.05);
+        }
+
+        .detail-block.reverse .detail-image-small {
+            right: auto;
+            left: -40px;
+        }
+
+        .detail-content h2 {
+            font-size: 3rem;
+            color: #007549;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .detail-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .detail-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,117,73,0.1);
+        }
+
+        .detail-block.reverse .feature-item:hover {
+            transform: translateX(-10px);
+        }
+
+
+
+        .feature-text h4 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            padding: 5rem 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 3rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #fcb714;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            padding: 0.4rem 0;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #fcb714;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            header {
+                margin: 0.5rem 1rem 0;
+                top: 0;
+            }
+
+            nav {
+                padding: 1rem 0.5rem 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+                gap: 0;
+                align-items: stretch;
+                border-radius: 16px;
+                margin-top: 0.5rem;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 117, 73, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                margin: 0.2rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .split-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .hero-side:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .hero-side:hover::before {
+                transform: none;
+            }
+
+            .hero-side:hover .hero-content {
+                transform: none;
+            }
+
+            .hero-side:hover .hero-content h2 {
+                transform: none;
+            }
+
+            .hero-side:hover .hero-btn {
+                transform: none;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+                line-height: 1.1;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-icon {
+                font-size: 4rem;
+            }
+
+            .detail-section {
+                padding: 5rem 2rem;
+            }
+
+            .detail-block,
+            .detail-block.reverse {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                margin-bottom: 6rem;
+            }
+
+            .detail-block.reverse .detail-image,
+            .detail-block.reverse .detail-content {
+                order: 0;
+            }
+
+            .detail-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .detail-content p {
+                font-size: 1rem;
+            }
+
+            .detail-image-main {
+                height: 400px;
+                border-radius: 12px;
+            }
+
+            .detail-image-main img {
+                border-radius: 12px;
+            }
+
+            .detail-image-small {
+                width: 200px;
+                height: 150px;
+                bottom: -30px;
+                right: -20px;
+                border-radius: 10px;
+            }
+
+            .detail-image-small img {
+                border-radius: 10px;
+            }
+
+            .detail-block.reverse .detail-image-small {
+                left: -20px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+
+            .stat-label {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .split-hero {
+                min-height: auto;
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .hero-side {
+                min-height: 60vh;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.7rem;
+                line-height: 1.1;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-icon {
+                font-size: 3.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
+
+            .detail-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .detail-block {
+                margin-bottom: 5rem;
+            }
+
+            .detail-content h2 {
+                font-size: 1.9rem;
+            }
+
+            .detail-content p {
+                font-size: 0.95rem;
+            }
+
+            .detail-image-main {
+                height: 350px;
+                border-radius: 12px;
+            }
+
+            .detail-image-main img {
+                border-radius: 12px;
+            }
+
+            .detail-image-small {
+                width: 180px;
+                height: 130px;
+                font-size: 0.85rem;
+                bottom: -20px;
+                right: -15px;
+                border-radius: 8px;
+            }
+
+            .detail-image-small img {
+                border-radius: 8px;
+            }
+
+            .detail-block.reverse .detail-image-small {
+                left: -15px;
+            }
+
+            .feature-item {
+                padding: 1.2rem;
+                gap: 0;
+            }
+
+            .feature-text h4 {
+                font-size: 1.1rem;
+            }
+
+            .feature-text p {
+                font-size: 0.9rem;
+            }
+
+            .stats-bar {
+                padding: 4rem 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.95rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a {
+                padding: 1rem 1.25rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .hero-side:hover {
+                transform: none;
+            }
+
+            .feature-item:hover {
+                transform: none;
+            }
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-icon img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+        }
+
+        @media (max-width: 640px) {
+            .hero-icon img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 73, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 117, 73, 0.4);
+            background: linear-gradient(135deg, #00a066 0%, #007549 100%);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile adjustments for scroll button */
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
+                    <li><a href="ответственность.html" data-translate="navigation_menu_responsibility">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html" class="active" data-translate="navigation_menu_activity">Вид деятельности</a></li>
+                    <li><a href="Новости.html" data-translate="navigation_menu_news">Новости</a></li>
+                    <li><a href="Вакансии.html" data-translate="navigation_menu_vacancies">Вакансии</a></li>
+                    <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
+                    <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Split Hero Section -->
+    <section class="split-hero">
+        <a href="#processing" class="hero-side hero-left">
+            <div class="hero-content">
+                <h2 data-translate="activity_hero_processing_title">Мясоперерабатывающий<br>комплекс</h2>
+                <p data-translate="activity_hero_processing_desc">Современное производство с полным циклом переработки мяса</p>
+                <span class="hero-btn" data-translate="activity_btn_more">Подробнее</span>
+            </div>
+        </a>
+        <a href="#feedlot" class="hero-side hero-right">
+            <div class="hero-content">
+                <h2 data-translate="activity_hero_feedlot_title">Откормочная площадка</h2>
+                <p data-translate="activity_hero_feedlot_desc">Передовые технологии выращивания и откорма КРС</p>
+                <span class="hero-btn" data-translate="activity_btn_more">Подробнее</span>
+            </div>
+        </a>
+    </section>
+
+    <!-- Detail Section -->
+    <section class="detail-section">
+        <div class="detail-container">
+            
+            <!-- Processing Plant -->
+            <div class="detail-block" id="processing">
+                <div class="detail-image">
+                    <div class="detail-image-main"><img src="фото2.png" alt="Мясоперерабатывающий комплекс"></div>
+                    <div class="detail-image-small"><img src="фото3.png" alt="Производство"></div>
+                </div>
+                <div class="detail-content">
+                    <h2 data-translate="activity_processing_title">Мясоперерабатывающий комплекс</h2>
+                    <p data-translate="activity_processing_desc1">Наш современный комплекс оснащен европейским оборудованием последнего поколения, что позволяет производить широкий ассортимент качественной мясной продукции.</p>
+                    <p data-translate="activity_processing_desc2">Мы применяем передовые технологии обработки и строгий контроль качества на каждом этапе производства.</p>
+                    
+                    <div class="detail-features">
+                        <div class="feature-item">
+                            <div class="feature-text">
+                                <h4 data-translate="activity_feature_equipment">Современное оборудование</h4>
+                                <p data-translate="activity_feature_equipment_desc">Производственные линии европейского производства для высокого качества продукции</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-text">
+                                <h4 data-translate="activity_feature_cooling">Холодильное хозяйство</h4>
+                                <p data-translate="activity_feature_cooling_desc">Современные холодильные камеры для правильного хранения при оптимальной температуре</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+    <div class="feature-text">
+        <h4 data-translate="activity_feature_quality">Контроль качества</h4>
+        <p data-translate="activity_feature_quality_desc">Многоступенчатый контроль на всех этапах — от сырья до готовой продукции</p>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedlot -->
+            <div class="detail-block reverse" id="feedlot">
+                <div class="detail-image">
+                    <div class="detail-image-main"><img src="фото4.png" alt="Откормочная площадка"></div>
+                    <div class="detail-image-small"><img src="фото5.png" alt="Животноводство"></div>
+                </div>
+                <div class="detail-content">
+                    <h2 data-translate="activity_feedlot_title">Откормочная площадка</h2>
+                    <p data-translate="activity_feedlot_desc1">Современный животноводческий комплекс с комфортными условиями содержания обеспечивает высокое качество мяса и благополучие животных.</p>
+                    <p data-translate="activity_feedlot_desc2">Наша откормочная площадка построена с учетом всех современных требований и оснащена необходимой инфраструктурой.</p>
+                    
+                    <div class="detail-features">
+                        <div class="feature-item">
+                            <div class="feature-text">
+                                <h4 data-translate="activity_feature_infrastructure">Современная инфраструктура</h4>
+                                <p data-translate="activity_feature_infrastructure_desc">Площадки обеспечивают комфортные условия содержания животных круглый год</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-text">
+                                <h4 data-translate="activity_feature_feeding">Качественное кормление</h4>
+                                <p data-translate="activity_feature_feeding_desc">Сбалансированные рационы для оптимального роста и здоровья животных</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-text">
+                                <h4 data-translate="activity_feature_veterinary">Ветеринарный контроль</h4>
+                                <p data-translate="activity_feature_veterinary_desc">Постоянный мониторинг здоровья поголовья и профилактические мероприятия</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EURASIA AGRO SEMEY</h3>
+                <p>Высококачественная мясная продукция для Казахстана и мира</p>
+            </div>
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <ul>
+                    <li><a href="main.html">О нас</a></li>
+                    <li><a href="main.html#leadership">Руководство</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="ответственность.html">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
+                    <li><a href="Новости.html">Новости</a></li>
+                    <li><a href="Вакансии.html">Вакансии</a></li>
+                    <li><a href="Контакты.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>БИН: 160740001659</p>
+                <p>Семей, ул. Сеченова, 6</p>
+                <p>область Абай, Казахстан</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#home') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+    
+    <!-- Подключаем систему переводов -->
+    <script src="translations.js"></script>
+</body>
+</html>

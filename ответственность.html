@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurasia Agro Semey - Ответственность</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            font-weight: 400;
+            background: #f8f9fa;
+            padding-top: 0;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin: 1rem 2rem 0;
+            border-radius: 16px;
+        }
+
+        nav {
+            max-width: none;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem 1rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007549;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .logo:hover {
+            color: #00a066;
+            transform: translateY(-1px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #007549;
+            background: rgba(0, 117, 73, 0.06);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: rgba(0, 117, 73, 0.5);
+        }
+
+        .language-btn.active {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: #007549;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 117, 73, 0.1);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #007549;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 117, 73, 0.15);
+            transform: scale(1.05);
+        }
+
+
+
+        /* Hero Banner */
+        .page-hero {
+            width: 100%;
+            height: 85vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 117, 73, 0.7) 0%, rgba(0, 160, 102, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            z-index: 2;
+        }
+
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 0 3rem;
+            color: white;
+        }
+
+        .page-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .page-hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .page-hero p {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            font-weight: 400;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            max-width: 750px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Content */
+        .content-section {
+            padding: 6rem 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .content-section.alt-bg {
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #007549;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Impact Grid */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        /* Impact Text Section with Illustrations */
+        .impact-text-section {
+            margin: 3rem 0;
+        }
+
+        .impact-text-block {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .impact-text-block.reverse {
+            grid-template-columns: 1fr 450px;
+        }
+
+        .impact-text-block.reverse .impact-illustration {
+            order: 2;
+        }
+
+        .impact-text-block.reverse .impact-content {
+            order: 1;
+        }
+
+        .landscape-card {
+            width: 400px;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(0,117,73,0.15);
+            margin: 0 auto;
+        }
+
+        .sky {
+            height: 40%;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 100%);
+            position: relative;
+        }
+
+        .sky::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 30px;
+            height: 20px;
+            background: white;
+            border-radius: 20px;
+            opacity: 0.8;
+        }
+
+        .hills {
+            height: 35%;
+            background: linear-gradient(to bottom, #90EE90 0%, #7CB342 100%);
+            position: relative;
+        }
+
+        .hills::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, #90EE90 0%, #7CB342 100%);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+        }
+
+        .ground {
+            height: 25%;
+            background: linear-gradient(to bottom, #D2691E 0%, #CD853F 100%);
+        }
+
+        .impact-label {
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            right: 15px;
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .impact-content p {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 117, 73, 0.1);
+            overflow: hidden;
+        }
+
+        .content-section.alt-bg .impact-card {
+            background: white;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,117,73,0.15);
+        }
+
+        .impact-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .impact-card-content {
+            padding: 2rem;
+        }
+
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+        }
+
+        .impact-card h3 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .impact-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .impact-card ul {
+            list-style: none;
+            margin-top: 1.2rem;
+        }
+
+        .impact-card li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .impact-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #007549;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Policy Section */
+        .policy-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .policy-item {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: block;
+        }
+
+        .policy-item:nth-child(even) {
+            display: block;
+        }
+
+        .content-section.alt-bg .policy-item {
+            background: white;
+        }
+
+        .policy-content {
+            padding: 3rem;
+            border-left: 5px solid #007549;
+        }
+
+        .policy-item:nth-child(even) .policy-content {
+            border-left: 5px solid #007549;
+            border-right: none;
+        }
+
+        .policy-item h3 {
+            font-size: 1.5rem;
+            color: #007549;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .policy-item h3 span {
+            font-size: 1.8rem;
+        }
+
+        .policy-item p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .policy-item ul {
+            list-style: none;
+            display: grid;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .policy-item li {
+            padding: 1rem 1.2rem 1rem 2.8rem;
+            position: relative;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #4a5568;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            border-left: 3px solid #007549;
+        }
+
+        .policy-item li:before {
+            content: "→";
+            position: absolute;
+            left: 0.9rem;
+            color: #007549;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            padding: 5rem 3rem;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-item .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .stat-item .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 3rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #fcb714;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            padding: 0.4rem 0;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #fcb714;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            header {
+                margin: 0.5rem 1rem 0;
+                top: 0;
+            }
+
+            nav {
+                padding: 1rem 0.5rem 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+                gap: 0;
+                align-items: stretch;
+                border-radius: 16px;
+                margin-top: 0.5rem;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 117, 73, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                margin: 0.2rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-hero {
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .page-hero-content {
+                padding: 0 2rem;
+            }
+
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                gap: 2.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 4rem 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .impact-text-section {
+                margin: 2rem 0;
+            }
+
+            .impact-text-block {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .impact-text-block.reverse {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-text-block.reverse .impact-illustration,
+            .impact-text-block.reverse .impact-content {
+                order: 0;
+            }
+
+            .landscape-card {
+                width: 320px;
+                height: 220px;
+            }
+
+            .impact-content p {
+                text-align: left;
+                font-size: 0.95rem;
+            }
+
+            .policy-item {
+                display: block;
+            }
+
+            .policy-item:nth-child(even) {
+                display: block;
+            }
+
+            .policy-item:nth-child(even) .policy-content {
+                border-right: none;
+                border-left: 5px solid #007549;
+            }
+
+            .policy-content {
+                padding: 2rem;
+            }
+
+            .stats-section {
+                padding: 4rem 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-hero {
+                height: 65vh;
+                min-height: 450px;
+            }
+
+            .page-hero-content {
+                padding: 0 1.5rem;
+            }
+
+            .page-hero-badge {
+                font-size: 0.8rem;
+                padding: 0.6rem 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .hero-stat-number {
+                font-size: 1.8rem;
+            }
+
+            .hero-stat-label {
+                font-size: 0.8rem;
+            }
+
+            .content-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .landscape-card {
+                width: 280px;
+                height: 200px;
+            }
+
+            .impact-content p {
+                font-size: 0.9rem;
+            }
+
+            .impact-card {
+                padding: 0;
+            }
+
+            .impact-card-image {
+                height: 180px;
+            }
+
+            .impact-card-content {
+                padding: 1.5rem;
+            }
+
+            .impact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .policy-content {
+                padding: 1.5rem;
+            }
+
+            .policy-item h3 {
+                font-size: 1.25rem;
+            }
+
+            .policy-item li {
+                padding: 0.9rem 1rem 0.9rem 2.5rem;
+                font-size: 0.86rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-item .number {
+                font-size: 3rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a {
+                padding: 1rem 1.25rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .impact-card:hover {
+                transform: none;
+            }
+
+            .policy-item:hover {
+                transform: none;
+            }
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 73, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 117, 73, 0.4);
+            background: linear-gradient(135deg, #00a066 0%, #007549 100%);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile adjustments for scroll button */
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
+                    <li><a href="ответственность.html" class="active" data-translate="navigation_menu_responsibility">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html" data-translate="navigation_menu_activity">Вид деятельности</a></li>
+                    <li><a href="Новости.html" data-translate="navigation_menu_news">Новости</a></li>
+                    <li><a href="Вакансии.html" data-translate="navigation_menu_vacancies">Вакансии</a></li>
+                    <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
+                    <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <div class="page-hero-badge" data-translate="responsibility_badge">Корпоративная Социальная Ответственность</div>
+            <h1 data-translate="responsibility_hero_title">Ответственность</h1>
+            <h2 data-translate="responsibility_hero_subtitle">Мы строим устойчивое будущее через социальную ответственность, этичное ведение бизнеса и заботу о людях и окружающей среде</h2>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">15+</div>
+                    <div class="hero-stat-label">Лет опыта</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">500+</div>
+                    <div class="hero-stat-label">Сотрудников</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">100%</div>
+                    <div class="hero-stat-label">Качество</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Impact Section -->
+    <section class="content-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 data-translate="responsibility_impact_title">Социально-экономическое воздействие</h2>
+                <p data-translate="responsibility_impact_desc">Наша компания стремится к позитивному влиянию на общество, создавая рабочие места, поддерживая местные сообщества и инвестируя в развитие региона</p>
+            </div>
+
+            <!-- Text with Illustrations Section -->
+            <div class="impact-text-section">
+                <div class="impact-text-block">
+                    <div class="impact-illustration">
+                        <div class="landscape-card">
+                            <div class="sky"></div>
+                            <div class="hills"></div>
+                            <div class="ground"></div>
+                            <div class="impact-label">Развитие персонала</div>
+                        </div>
+                    </div>
+                    <div class="impact-content">
+                        <p>Реализация проекта имеет значительное социально-экономическое значение и направлена на устойчивое развитие регионов Абайской области. В рамках проекта предусмотрено создание новых рабочих мест на производственных и логистических объектах комплекса, что способствует снижению уровня безработицы и повышению качества жизни местного населения.</p>
+                        
+                        <p>Одновременно проект обеспечивает устойчивую занятость для более чем 1 000 индивидуальных фермеров и крестьянских хозяйств, вовлечённых в производственно-сбытовую цепочку. Поддержка малых сельскохозяйственных производителей способствует развитию предпринимательской инициативы, повышению производственной культуры и внедрению современных методов ведения хозяйства.</p>
+                    </div>
+                </div>
+
+                <div class="impact-text-block reverse">
+                    <div class="impact-content">
+                        <p>С учётом социально-экономических особенностей сельскохозяйственных и животноводческих регионов, реализация проекта оказывает позитивный эффект на местные сообщества. Доход, получаемый участниками проекта, обеспечивает финансовую стабильность более чем для 5 000 человек в домохозяйствах, улучшая их доступ к образованию, здравоохранению и базовой инфраструктуре.</p>
+                        
+                        <p>Компания рассматривает данный проект как долгосрочное партнёрство с сельскими регионами, направленное не только на экономическую эффективность, но и на социальную ответственность. Мы стремимся создавать условия для устойчивого роста, повышения благосостояния населения и укрепления социального потенциала регионов, в которых мы работаем.</p>
+                    </div>
+                    <div class="impact-illustration">
+                        <div class="landscape-card">
+                            <div class="sky"></div>
+                            <div class="hills"></div>
+                            <div class="ground"></div>
+                            <div class="impact-label">Поддержка сообщества</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy and Ethics Section -->
+    <section class="content-section alt-bg">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 data-translate="responsibility_policy_title">Наша политика и этика</h2>
+                <p data-translate="responsibility_policy_desc">Честность, прозрачность и соблюдение высочайших этических стандартов лежат в основе нашего бизнеса</p>
+            </div>
+
+            <div class="policy-grid">
+                <div class="policy-item">
+                    <div class="policy-content">
+                        <h3>Корпоративная этика</h3>
+                        <p>Мы строим бизнес на принципах честности, добросовестности и уважения ко всем заинтересованным сторонам. Каждое решение принимается с учетом этических норм и долгосрочных последствий.</p>
+                        <ul>
+                            <li>Нулевая терпимость к коррупции и мошенничеству</li>
+                            <li>Прозрачность в деловых операциях и отчетности</li>
+                            <li>Честная конкуренция и соблюдение антимонопольного законодательства</li>
+                            <li>Защита конфиденциальной информации клиентов и партнеров</li>
+                            <li>Этичное взаимодействие с поставщиками и подрядчиками</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-item">
+                    <div class="policy-content">
+                        <h3>Качество и безопасность</h3>
+                        <p>Безопасность нашей продукции и производственных процессов является абсолютным приоритетом. Мы применяем международные стандарты контроля качества.</p>
+                        <ul>
+                            <li>Система контроля качества на всех этапах производства</li>
+                            <li>Сертификация по международным стандартам безопасности пищевых продуктов</li>
+                            <li>Лабораторный контроль сырья и готовой продукции</li>
+                            <li>Прослеживаемость продукции от поставщика до потребителя</li>
+                            <li>Быстрое реагирование на любые вопросы качества</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-item">
+                    <div class="policy-content">
+                        <h3>Права сотрудников</h3>
+                        <p>Уважение к правам и достоинству каждого сотрудника создает основу для продуктивной и безопасной рабочей среды. Мы обеспечиваем равные возможности для всех.</p>
+                        <ul>
+                            <li>Запрет дискриминации по любым признакам</li>
+                            <li>Равная оплата за равный труд</li>
+                            <li>Право на объединение и коллективные переговоры</li>
+                            <li>Защита от домогательств и насилия на рабочем месте</li>
+                            <li>Конфиденциальная система подачи жалоб</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EURASIA AGRO SEMEY</h3>
+                <p>Высококачественная мясная продукция для Казахстана и мира</p>
+            </div>
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <ul>
+                    <li><a href="main.html">О нас</a></li>
+                    <li><a href="main.html#leadership">Руководство</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="ответственность.html">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
+                    <li><a href="Новости.html">Новости</a></li>
+                    <li><a href="Вакансии.html">Вакансии</a></li>
+                    <li><a href="Контакты.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>БИН: 160740001659</p>
+                <p>Семей, ул. Сеченова, 6</p>
+                <p>область Абай, Казахстан</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+    
+    <!-- Подключаем систему переводов -->
+    <script src="translations.js"></script>
+</body>
+</html>

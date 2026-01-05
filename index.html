@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurasia Agro Semey - Главная</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            font-weight: 400;
+            background: 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%),
+                url('основное фото.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 1rem;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 1rem;
+            z-index: 1000;
+            margin: 0 2rem;
+            border-radius: 16px;
+        }
+
+        nav {
+            max-width: none;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem 1rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007549;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .logo:hover {
+            color: #00a066;
+            transform: translateY(-1px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #007549;
+            background: rgba(0, 117, 73, 0.06);
+        }
+
+        .nav-links a::after {
+            display: none;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: rgba(0, 117, 73, 0.5);
+        }
+
+        .language-btn.active {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: #007549;
+            font-weight: 600;
+        }
+
+
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 117, 73, 0.1);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #007549;
+            padding: 0.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 117, 73, 0.15);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 95vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 10%;
+            bottom: 15%;
+            max-width: 600px;
+            color: white;
+            z-index: 10;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            letter-spacing: -0.8px;
+            white-space: nowrap;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+            font-weight: 400;
+        }
+
+        /* About Us Section */
+        .about-section {
+            padding: 6rem 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #007549;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .about-content ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .about-content li {
+            padding: 1rem 1rem 1rem 2.5rem;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #007549;
+        }
+
+        .about-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0.8rem;
+            color: #007549;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007549;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0,117,73,0.08);
+            border: 1px solid rgba(0,117,73,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .about-image-placeholder:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,117,73,0.15);
+        }
+
+        .about-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .about-image-placeholder:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 6rem 3rem;
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .leadership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #007549;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .leader-photo {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .leader-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .leader-info h3 {
+            font-size: 1.2rem;
+            color: #1a202c;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+            letter-spacing: -0.1px;
+        }
+
+        .leader-info .position {
+            color: #007549;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+
+        .leader-info p {
+            color: #4a5568;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 3rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #fcb714;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            padding: 0.4rem 0;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: #fcb714;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1200px) {
+            nav {
+                padding: 1rem 1.5rem 1rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section {
+                padding: 4rem 2rem;
+            }
+
+            .about-container {
+                gap: 3rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .language-switcher {
+                margin-left: 1rem;
+            }
+
+        }
+
+        @media (max-width: 968px) {
+            header {
+                margin: 0 1rem;
+                top: 0.5rem;
+            }
+
+            nav {
+                padding: 1rem 1rem 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .language-switcher {
+                margin-left: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+                gap: 0;
+                align-items: stretch;
+                border-radius: 16px;
+                margin-top: 0.5rem;
+                z-index: 1000;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 117, 73, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                margin: 0.2rem 0;
+            }
+
+            .nav-links a:hover {
+                background: rgba(0, 117, 73, 0.08);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+
+
+            .hero {
+                height: 70vh;
+                min-height: 500px;
+            }
+
+            .hero-content {
+                left: 5%;
+                right: 5%;
+                bottom: 10%;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                white-space: normal;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .about-section {
+                padding: 4rem 2rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+
+            .about-image-placeholder {
+                height: 300px;
+                border-radius: 12px;
+            }
+
+            .about-image-placeholder img {
+                border-radius: 12px;
+            }
+
+            .leadership-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            footer {
+                padding: 2.5rem 2rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            header {
+                margin: 0 0.5rem;
+                top: 0.5rem;
+            }
+
+            nav {
+                padding: 0.8rem 0.8rem 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .language-switcher {
+                margin-left: 0.5rem;
+            }
+
+            .language-btn {
+                padding: 0.15rem 0.4rem;
+                font-size: 0.75rem;
+                min-width: 35px;
+            }
+
+            .nav-links {
+                left: 0;
+                right: 0;
+                border-radius: 12px;
+                padding: 1rem;
+            }
+
+            .hero {
+                height: 60vh;
+                min-height: 450px;
+            }
+
+            .hero-content {
+                left: 1.5rem;
+                right: 1.5rem;
+                bottom: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+                letter-spacing: -0.4px;
+                white-space: normal;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .about-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .about-content p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+            .about-content ul {
+                margin-top: 1.5rem;
+            }
+
+            .about-content li {
+                font-size: 0.85rem;
+                padding: 0.8rem 0.8rem 0.8rem 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .about-content li:before {
+                font-size: 1rem;
+                left: 0.6rem;
+            }
+
+            .about-image-placeholder {
+                height: 250px;
+                font-size: 0.9rem;
+                margin-top: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .about-image-placeholder img {
+                border-radius: 12px;
+            }
+
+            .leadership-section {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title p {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            .leadership-grid {
+                gap: 1.5rem;
+            }
+
+            .leader-photo {
+                height: 250px;
+                font-size: 0.9rem;
+            }
+
+            .leader-info {
+                padding: 1.2rem 1rem;
+            }
+
+            .leader-info h3 {
+                font-size: 1.1rem;
+            }
+
+            .leader-info .position {
+                font-size: 0.85rem;
+            }
+
+            .leader-info p {
+                font-size: 0.8rem;
+            }
+
+            footer {
+                padding: 2rem 1.5rem 1rem;
+            }
+
+            .footer-content {
+                gap: 2rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.85rem;
+            }
+
+            .footer-section a {
+                padding: 0.5rem 0;
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Extra Small Mobile */
+        @media (max-width: 380px) {
+            header {
+                margin: 0 0.25rem;
+                top: 0.25rem;
+            }
+
+            nav {
+                padding: 0.8rem 0.5rem 0.8rem 1rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .language-switcher {
+                margin-left: 0.25rem;
+            }
+
+            .language-btn {
+                padding: 0.1rem 0.35rem;
+                font-size: 0.7rem;
+                min-width: 32px;
+            }
+
+            .hero {
+                height: 55vh;
+                min-height: 400px;
+            }
+
+            .hero-content {
+                left: 1rem;
+                right: 1rem;
+                bottom: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 1.4rem;
+                letter-spacing: -0.3px;
+                white-space: normal;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .about-section {
+                padding: 3rem 1rem;
+            }
+
+            .about-content h2,
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+            }
+
+            .about-content li {
+                font-size: 0.9rem;
+                padding: 0.7rem 0.8rem;
+                padding-left: 2rem;
+            }
+
+            .leadership-section {
+                padding: 3rem 1rem;
+            }
+
+            .leader-info {
+                padding: 1.5rem 1rem;
+            }
+
+            footer {
+                padding: 2.5rem 1rem 1rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a {
+                padding: 1rem 1.25rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .leader-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Ensure all images are responsive */
+        .about-container img,
+        .leadership-grid img,
+        .hero-image-placeholder img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 73, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 117, 73, 0.4);
+            background: linear-gradient(135deg, #00a066 0%, #007549 100%);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile adjustments for scroll button */
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
+                    <li><a href="ответственность.html" data-translate="navigation_menu_responsibility">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html" data-translate="navigation_menu_activity">Вид деятельности</a></li>
+                    <li><a href="Новости.html" data-translate="navigation_menu_news">Новости</a></li>
+                    <li><a href="Вакансии.html" data-translate="navigation_menu_vacancies">Вакансии</a></li>
+                    <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
+                    <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section - Main Image Placeholder -->
+    <section class="hero" id="home">
+        <div class="hero-image-placeholder">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <h1 data-translate="index_hero_title">Агропромышленная компания полного цикла</h1>
+                <p data-translate="index_hero_desc">Современный агропромышленный холдинг полного цикла, прямиком из Казахстанских степей</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 data-translate="index_about_title">О нас</h2>
+                <p data-translate="index_about_desc1">
+                    Eurasia Agro Semey - это вертикально интегрированная агропромышленная компания, объединяющая ключевые направления агробизнеса. В структуру компании входят мясоперерабатывающий комбинат «Semey Meat Company», современный откормочная площадка «Semey Feedlot», а также агрофирма «Приречное», специализирующееся на выращивании овощных культур.
+                </p>
+                <p data-translate="index_about_desc2">
+                    Компания контролирует весь цикл производства — от выращивания сельскохозяйственной продукции и откорма скота до переработки мяса, обеспечивая стабильное качество, безопасность и надежность поставок.
+                </p>
+                <ul>
+                    <li data-translate="index_about_feature1">Современное оборудование европейского производства</li>
+                    <li data-translate="index_about_feature2">Полный цикл производства от откорма до готовой продукции</li>
+                    <li data-translate="index_about_feature3">Строгий контроль качества на всех этапах</li>
+                    <li data-translate="index_about_feature4">Квалифицированный персонал с многолетним опытом</li>
+                    <li data-translate="index_about_feature5">Экологически ответственное производство</li>
+                </ul>
+            </div>
+            <div class="about-image-placeholder">
+                <img src="фото1.png" alt="О компании">
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+        <div class="leadership-container">
+            <div class="section-title">
+                <h2 data-translate="index_leadership_title">Руководство</h2>
+                <p data-translate="index_leadership_desc">Наша команда профессионалов</p>
+            </div>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Имангажинов Кайрат Данабекович</h3>
+                        <div class="position">Заместитель директора по производству</div>
+                        <p>Опытный руководитель производственных процессов с многолетним стажем в агропромышленной отрасли.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Исембаев Сергазы Кангужанович</h3>
+                        <div class="position">Исполнительный директор</div>
+                        <p>Стратегический лидер, обеспечивающий эффективное управление всеми направлениями деятельности компании.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Чакенова Гульнара Оралтаевна</h3>
+                        <div class="position">Главный бухгалтер</div>
+                        <p>Профессионал в области финансового учета и контроля, обеспечивающий прозрачность финансовых операций.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Изатов Асет Азатович</h3>
+                        <div class="position">Руководитель финансового отдела</div>
+                        <p>Специалист по финансовому планированию и управлению денежными потоками компании.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Межибовский Владислав Ильич</h3>
+                        <div class="position">Начальник отдела снабжения</div>
+                        <p>Эксперт в области логистики и снабжения, обеспечивающий бесперебойные поставки для производства.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Сагидолдаев Даурен Канатович</h3>
+                        <div class="position">Менеджер по коммерции</div>
+                        <p>Профессионал в области продаж и развития коммерческих отношений с партнерами и клиентами.</p>
+                    </div>
+                </div>
+                <div class="leader-card">
+                    <div class="leader-photo">
+                        [Фото руководителя]
+                    </div>
+                    <div class="leader-info">
+                        <h3>Тюлюбаева Сауле Нурлановна</h3>
+                        <div class="position">HR-менеджер</div>
+                        <p>Специалист по управлению персоналом, развитию кадрового потенциала и корпоративной культуры.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EURASIA AGRO SEMEY</h3>
+                <p>Высококачественная мясная продукция для Казахстана и мира</p>
+            </div>
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <ul>
+                    <li><a href="index.html">О нас</a></li>
+                    <li><a href="index.html#leadership">Руководство</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="ответственность.html">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
+                    <li><a href="Новости.html">Новости</a></li>
+                    <li><a href="Вакансии.html">Вакансии</a></li>
+                    <li><a href="Контакты.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>БИН: 160740001659</p>
+                <p>Семей, ул. Сеченова, 6</p>
+                <p>область Абай, Казахстан</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Prevent scroll when mobile menu is open
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Add smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#home') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+    <!-- Подключаем систему переводов -->
+    <script src="translations.js"></script>
+</body>
+</html>

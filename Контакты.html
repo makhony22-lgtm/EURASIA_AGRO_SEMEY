@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurasia Agro Semey - Контакты</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Remove all underlines */
+        a, a:hover, a:focus, a:active, a:visited {
+            text-decoration: none !important;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            font-weight: 400;
+            background: 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%),
+                url('основное фото.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 1rem;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 1rem;
+            z-index: 1000;
+            margin: 0 2rem;
+            border-radius: 16px;
+        }
+
+        nav {
+            max-width: none;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem 1rem 1rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #007549;
+            letter-spacing: -0.3px;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .logo:hover {
+            color: #00a066;
+            transform: translateY(-1px);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none !important;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #007549;
+            background: rgba(0, 117, 73, 0.06);
+        }
+
+        .nav-links a::after {
+            display: none;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: rgba(0, 117, 73, 0.5);
+        }
+
+        .language-btn.active {
+            background: rgba(0, 117, 73, 0.1);
+            border-color: #007549;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 117, 73, 0.1);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #007549;
+            padding: 0.5rem;
+            border-radius: 12px;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            padding: 10rem 3rem 8rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .page-hero p {
+            font-size: 1.35rem;
+            opacity: 0.98;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            max-width: 1400px;
+            margin: -4rem auto 0;
+            padding: 6rem 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Contact Info Cards */
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,117,73,0.1);
+            border: 1px solid rgba(0, 117, 73, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #007549 0%, #00a066 100%);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,117,73,0.15);
+            border-color: rgba(0, 117, 73, 0.2);
+        }
+
+        .info-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,117,73,0.2);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            letter-spacing: -0.2px;
+        }
+
+        .info-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card .contact-text {
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        .info-card .contact-link {
+            color: #007549;
+            font-weight: 500;
+        }
+
+        /* Contact Form */
+        .contact-form-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-card h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+
+        .contact-form-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.6rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #007549;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: #007549;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #00a066;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 117, 73, 0.3);
+        }
+
+        /* Map Section */
+        .map-section {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 6rem 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Additional Info Section */
+        .additional-info {
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 6rem 3rem;
+            border-radius: 16px;
+        }
+
+        .additional-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .additional-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 3rem;
+            letter-spacing: -0.3px;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .additional-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .additional-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,117,73,0.12);
+        }
+
+        .additional-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 117, 73, 0.1) 0%, rgba(0, 160, 102, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .additional-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.8rem;
+        }
+
+        .additional-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: #a0aec0;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #a0aec0;
+            text-decoration: none !important;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #718096;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            header {
+                margin: 0 1rem;
+            }
+
+            nav {
+                padding: 1rem 0.5rem 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+                gap: 0;
+                align-items: stretch;
+                border-radius: 16px;
+                margin-top: 0.5rem;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                border-bottom: 1px solid rgba(0, 117, 73, 0.1);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0.5rem;
+                border-radius: 8px;
+                margin: 0.2rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-hero {
+                padding: 7rem 2rem 5rem;
+            }
+
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-section {
+                padding: 4rem 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .map-section {
+                padding: 0 2rem 6rem;
+            }
+
+            .map-placeholder {
+                height: 400px;
+            }
+
+            .additional-info {
+                padding: 5rem 2rem;
+            }
+
+            .additional-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-hero {
+                padding: 5rem 1.5rem 4rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-section {
+                padding: 3rem 1.5rem;
+                margin-top: -3rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-card {
+                padding: 2rem;
+            }
+
+            .contact-form-card {
+                padding: 2rem;
+            }
+
+            .contact-form-card h2 {
+                font-size: 1.7rem;
+            }
+
+            .map-section {
+                padding: 0 1.5rem 5rem;
+            }
+
+            .map-placeholder {
+                height: 350px;
+            }
+
+            .additional-info {
+                padding: 4rem 1.5rem;
+            }
+
+            .additional-title {
+                font-size: 1.8rem;
+            }
+
+            .additional-card {
+                padding: 2rem;
+            }
+
+            footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-links a {
+                padding: 1rem 1.25rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .info-card:hover {
+                transform: none;
+            }
+
+            .additional-card:hover {
+                transform: none;
+            }
+
+            .submit-btn,
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                min-height: 44px;
+            }
+        }
+
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #007549 0%, #00a066 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 117, 73, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 117, 73, 0.4);
+            background: linear-gradient(135deg, #00a066 0%, #007549 100%);
+        }
+
+        .scroll-to-top:active {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile adjustments for scroll button */
+        @media (max-width: 640px) {
+            .scroll-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .scroll-to-top {
+                bottom: 1rem;
+                right: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
+                    <li><a href="ответственность.html" data-translate="navigation_menu_responsibility">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html" data-translate="navigation_menu_activity">Вид деятельности</a></li>
+                    <li><a href="Новости.html" data-translate="navigation_menu_news">Новости</a></li>
+                    <li><a href="Вакансии.html" data-translate="navigation_menu_vacancies">Вакансии</a></li>
+                    <li><a href="Контакты.html" class="active" data-translate="navigation_menu_contacts">Контакты</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
+                    <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1 data-translate="contacts_hero_title">Свяжитесь с нами</h1>
+            <p data-translate="contacts_hero_desc">Мы всегда готовы ответить на ваши вопросы и обсудить возможности сотрудничества</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-card-icon">📍</div>
+                    <h3 data-translate="contacts_address_title">Адрес</h3>
+                    <p class="contact-text">Семей, ул. Сеченова, 6</p>
+                    <p class="contact-text">Абайская область, Казахстан</p>
+                    <p class="contact-text">071410</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">📞</div>
+                    <h3 data-translate="contacts_phone_title">Телефон</h3>
+                    <p class="contact-link">+7 (722) 212-34-56</p>
+                    <p class="contact-link">+7 (722) 212-34-57</p>
+                    <p class="contact-text">Пн-Пт: 9:00 - 18:00</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">✉️</div>
+                    <h3 data-translate="contacts_email_title">Email</h3>
+                    <p class="contact-link">info@eurasiaagro.kz</p>
+                    <p class="contact-link">sales@eurasiaagro.kz</p>
+                    <p class="contact-link">hr@eurasiaagro.kz</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-card-icon">🏢</div>
+                    <h3 data-translate="contacts_requisites_title">Реквизиты</h3>
+                    <p class="contact-text"><strong>БИН:</strong> 160740001659</p>
+                    <p class="contact-text"><strong>ТОО:</strong> "Eurasia Agro Semey"</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-card">
+                <h2 data-translate="contacts_form_title">Напишите нам</h2>
+                <p data-translate="contacts_form_desc">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
+                
+                <form>
+                    <div class="form-group">
+                        <label for="name" data-translate="contacts_form_name">Ваше имя *</label>
+                        <input type="text" id="name" required placeholder="Введите ваше имя">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" data-translate="contacts_form_email">Email *</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" data-translate="contacts_form_phone">Телефон</label>
+                        <input type="tel" id="phone" placeholder="+7 (___) ___-__-__">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" data-translate="contacts_form_subject">Тема обращения *</label>
+                        <select id="subject" required>
+                            <option value="">Выберите тему</option>
+                            <option value="cooperation">Сотрудничество</option>
+                            <option value="sales">Закупка продукции</option>
+                            <option value="supply">Поставка сырья</option>
+                            <option value="career">Вакансии</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-translate="contacts_form_message">Сообщение *</label>
+                        <textarea id="message" required placeholder="Расскажите о вашем вопросе или предложении"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" data-translate="contacts_form_btn">Отправить сообщение</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-placeholder">
+                [Карта: Семей, ул. Сеченова, 6, Абайская область]
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Info Section -->
+    <section class="additional-info">
+        <div class="additional-container">
+            <h2 class="additional-title" data-translate="contacts_additional_title">Как с нами связаться</h2>
+            <div class="additional-grid">
+                
+                <div class="additional-card">
+                    <div class="additional-card-icon">🤝</div>
+                    <h3 data-translate="contacts_additional_coop">Сотрудничество</h3>
+                    <p>Заинтересованы в партнерстве? Свяжитесь с нашим отделом продаж для обсуждения условий сотрудничества</p>
+                </div>
+
+                <div class="additional-card">
+                    <div class="additional-card-icon">🚚</div>
+                    <h3 data-translate="contacts_additional_suppliers">Поставщикам</h3>
+                    <p>Если вы фермер или поставщик сырья, напишите нам для обсуждения долгосрочного сотрудничества</p>
+                </div>
+
+                <div class="additional-card">
+                    <div class="additional-card-icon">📋</div>
+                    <h3 data-translate="contacts_additional_vacancies">Вакансии</h3>
+                    <p>Хотите присоединиться к нашей команде? Отправьте резюме на hr@eurasiaagro.kz или посетите раздел вакансий</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EURASIA AGRO SEMEY</h3>
+                <p>Высококачественная мясная продукция для Казахстана и мира</p>
+            </div>
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <ul>
+                    <li><a href="main.html">О нас</a></li>
+                    <li><a href="main.html#leadership">Руководство</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="ответственность.html">Ответственность</a></li>
+                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
+                    <li><a href="Новости.html">Новости</a></li>
+                    <li><a href="Вакансии.html">Вакансии</a></li>
+                    <li><a href="Контакты.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>БИН: 160740001659</p>
+                <p>Семей, ул. Сеченова, 6</p>
+                <p>область Абай, Казахстан</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+
+        // Scroll to Top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+    
+    <!-- Подключаем систему переводов -->
+    <script src="translations.js"></script>
+</body>
+</html>
