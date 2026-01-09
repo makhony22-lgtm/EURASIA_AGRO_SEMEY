@@ -30,7 +30,7 @@
             position: sticky;
             top: 1rem;
             z-index: 1000;
-            margin: 0 2rem;
+            margin: 0 1.5rem;
             border-radius: 16px;
         }
 
@@ -40,7 +40,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem 1rem 1rem;
+            padding: 1rem 1rem 1rem 0.5rem;
         }
 
         .logo {
@@ -52,8 +52,8 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             white-space: nowrap;
-            margin-left: 0;
-            padding-left: 0;
+            margin-left: -0.5rem;
+            padding-left: 0.5rem;
         }
 
         .logo:hover {
@@ -72,7 +72,7 @@
             text-decoration: none;
             color: #4a5568;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: all 0.2s ease;
             position: relative;
             padding: 0.5rem 1rem;
@@ -83,14 +83,36 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #007549;
-            background: rgba(0, 117, 73, 0.06);
+            color: #007549; 
+            background: rgba(0, 117, 73, 0.1); 
+            border-radius: 5px;
+            font-weight: 600;
         }
 
         /* Language Switcher */
         .language-switcher {
             display: flex;
             flex-direction: column;
+            gap: 0.3rem;
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+            min-width: 40px;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.15rem 0.4rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 36px;
+            text-align: center;
+            white-space: nowrap;
+        }
             gap: 0.5rem;
             margin-left: 2rem;
         }
@@ -446,17 +468,13 @@
         }
 
         .footer-section h3 {
-            color: white;
             margin-bottom: 1.5rem;
-            font-size: 1rem;
             font-weight: 600;
         }
 
         .footer-section p {
             color: #a0aec0;
             line-height: 1.8;
-            font-size: 0.95rem;
-            font-weight: 300;
         }
 
         .footer-section ul {
@@ -469,8 +487,6 @@
             display: block;
             padding: 0.5rem 0;
             transition: color 0.3s;
-            font-size: 0.95rem;
-            font-weight: 300;
         }
 
         .footer-section a:hover {
@@ -482,9 +498,8 @@
             margin: 0 auto;
             padding-top: 2rem;
             border-top: 1px solid #2d3748;
-            color: #718096;
-            font-size: 0.9rem;
             text-align: center;
+            color: #718096;
         }
 
         /* Responsive */
@@ -788,7 +803,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
@@ -799,8 +814,8 @@
                     <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
                 </ul>
                 <div class="language-switcher">
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Қаз</button>
                     <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
-                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
                     <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
                 </div>
             </div>
@@ -821,10 +836,10 @@
                 [Главное изображение: Торжественное открытие комплекса]
             </div>
             <div class="featured-content">
-                <span class="featured-date">18 декабря 2024</span>
-                <h2 data-translate="news_featured_title">Открытие современного мясоперерабатывающего комплекса в регионе Абай</h2>
-                <p>Сегодня состоялось торжественное открытие мясоперерабатывающего комплекса Eurasia Agro Semey. Это важная веха в развитии пищевой промышленности региона. Современное предприятие, оснащенное европейским оборудованием, создаст более 500 рабочих мест и обеспечит высокое качество продукции.</p>
-                <a href="новости открытие.html" class="read-more-link">Читать полностью →</a>
+                <span class="featured-date" data-translate="news_december_18">18 декабря 2024</span>
+                <h2 data-translate="news_featured_title1">Открытие современного мясоперерабатывающего комплекса в регионе Абай</h2>
+                <p data-translate="news_featured_title2">Сегодня состоялось торжественное открытие мясоперерабатывающего комплекса Eurasia Agro Semey. Это важная веха в развитии пищевой промышленности региона. Современное предприятие, оснащенное европейским оборудованием, создаст более 500 рабочих мест и обеспечит высокое качество продукции.</p>
+                <a href="новости открытие.html" class="read-more-link" data-translate="news_read">Читать полностью →</a>
             </div>
         </div>
     </section>
@@ -923,44 +938,48 @@
 
     <!-- Load More -->
     <section class="load-more-section">
-        <button class="load-more-btn">Загрузить еще</button>
+        <button class="load-more-btn" data-translate="news_upload">Загрузить еще</button>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>EURASIA AGRO SEMEY</h3>
-                <p>Высококачественная мясная продукция для Казахстана и мира</p>
-            </div>
-            <div class="footer-section">
-                <h3>О компании</h3>
-                <ul>
-                    <li><a href="main.html">О нас</a></li>
-                    <li><a href="main.html#leadership">Руководство</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Информация</h3>
-                <ul>
-                    <li><a href="ответственность.html">Ответственность</a></li>
-                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
-                    <li><a href="Новости.html">Новости</a></li>
-                    <li><a href="Вакансии.html">Вакансии</a></li>
-                    <li><a href="Контакты.html">Контакты</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <p>БИН: 160740001659</p>
-                <p>Семей, ул. Сеченова, 6</p>
-                <p>область Абай, Казахстан</p>
-            </div>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>EURASIA AGRO SEMEY</h3>
+            <p data-translate="footer_desc">Высококачественная мясная продукция для Казахстана и мира</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        
+        <div class="footer-section">
+            <h3 data-translate="footer_about">О компании</h3>
+            <ul>
+                <li><a href="index.html#about" data-translate="footer_onass">О нас</a></li>
+                <li><a href="index.html#leadership" data-translate="footer_ruk">Руководство</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="footer-section">
+            <h3 data-translate="footer_info">Информация</h3>
+            <ul>
+                <li><a href="ответственность.html" data-translate="footer_resp">Ответственность</a></li>
+                <li><a href="Вид деятельности.html" data-translate="footer_act">Вид деятельности</a></li>
+                <li><a href="Новости.html" data-translate="footer_news">Новости</a></li>
+                <li><a href="Вакансии.html" data-translate="footer_vac">Вакансии</a></li>
+                <li><a href="Контакты.html" data-translate="footer_cont">Контакты</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3 data-translate="footer_cont">Контакты</h3>
+            <p data-translate="footer_bin">БИН: 160740001659</p>
+            <p data-translate="footer_address">Семей, ул. Сеченова, 6</p>
+            <p data-translate="footer_region">область Абай, Казахстан</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Eurasia Agro Semey. <span data-translate="footer_rights">Все права защищены.</span></p>
+    </div>
+</footer>
 
     <script>
         function toggleMenu() {

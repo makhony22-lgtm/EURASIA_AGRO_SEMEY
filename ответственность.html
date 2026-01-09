@@ -18,7 +18,14 @@
             line-height: 1.6;
             color: #1a202c;
             font-weight: 400;
-            background: #f8f9fa;
+            font-weight: 400;
+            background: 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%),
+                url('Основное_фото.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             padding-top: 0;
         }
 
@@ -28,9 +35,9 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: sticky;
-            top: 0;
+            top: 1rem;
             z-index: 1000;
-            margin: 1rem 2rem 0;
+            margin: 0 1.5rem;
             border-radius: 16px;
         }
 
@@ -40,7 +47,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem 1rem 1rem;
+            padding: 1rem 1rem 1rem 0.5rem;
         }
 
         .logo {
@@ -52,8 +59,8 @@
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
             white-space: nowrap;
-            margin-left: 0;
-            padding-left: 0;
+            margin-left: -0.5rem;
+            padding-left: 0.5rem;
         }
 
         .logo:hover {
@@ -72,7 +79,7 @@
             text-decoration: none;
             color: #4a5568;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: all 0.2s ease;
             position: relative;
             padding: 0.5rem 1rem;
@@ -84,12 +91,34 @@
         .nav-links a:hover,
         .nav-links a.active {
             color: #007549;
-            background: rgba(0, 117, 73, 0.06);
+            background: rgba(0, 117, 73, 0.1);
+            border-radius: 5px;
+            font-weight: 600;
         }
-
         /* Language Switcher */
         .language-switcher {
             display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+            min-width: 40px;
+        }
+
+        .language-btn {
+            background: transparent;
+            border: 1px solid rgba(0, 117, 73, 0.3);
+            color: #007549;
+            padding: 0.15rem 0.4rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 36px;
+            text-align: center;
+            white-space: nowrap;
+        }
             flex-direction: column;
             gap: 0.5rem;
             margin-left: 2rem;
@@ -159,7 +188,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 117, 73, 0.7) 0%, rgba(0, 160, 102, 0.6) 100%);
+            background: #0050317a;
             z-index: 1;
         }
 
@@ -367,7 +396,7 @@
 
         .hills {
             height: 35%;
-            background: linear-gradient(to bottom, #90EE90 0%, #7CB342 100%);
+            background: linear-gradient(to bottom, #007549 0%, #7CB342 100%);
             position: relative;
         }
 
@@ -610,10 +639,9 @@
 
         /* Footer */
         footer {
-            background: rgba(26, 32, 44, 0.95);
-            backdrop-filter: blur(10px);
+            background: #1a202c;
             color: white;
-            padding: 3rem 3rem 1.5rem;
+            padding: 4rem 3rem 2rem;
         }
 
         .footer-content {
@@ -622,19 +650,17 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
-            color: #fcb714;
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
         }
 
         .footer-section p {
-            color: #aaa;
+            color: #a0aec0;
             line-height: 1.8;
-            font-size: 0.95rem;
         }
 
         .footer-section ul {
@@ -642,24 +668,24 @@
         }
 
         .footer-section a {
-            color: #aaa;
+            color: #a0aec0;
             text-decoration: none;
             display: block;
-            padding: 0.4rem 0;
+            padding: 0.5rem 0;
             transition: color 0.3s;
-            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
-            color: #fcb714;
+            color: white;
         }
 
         .footer-bottom {
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid #333;
-            color: #888;
-            font-size: 0.9rem;
+            border-top: 1px solid #2d3748;
+            text-align: center;
+            color: #718096;
         }
 
         /* Responsive */
@@ -1023,7 +1049,7 @@
     <header>
         <nav>
             <a href="index.html" class="logo">EURASIA AGRO SEMEY</a>
-            <div style="display: flex; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" data-translate="navigation_menu_home">О компании</a></li>
@@ -1034,8 +1060,8 @@
                     <li><a href="Контакты.html" data-translate="navigation_menu_contacts">Контакты</a></li>
                 </ul>
                 <div class="language-switcher">
+                    <button class="language-btn" onclick="switchLanguage('kz', event)">Қаз</button>
                     <button class="language-btn active" onclick="switchLanguage('ru', event)">Рус</button>
-                    <button class="language-btn" onclick="switchLanguage('kz', event)">Каз</button>
                     <button class="language-btn" onclick="switchLanguage('en', event)">Eng</button>
                 </div>
             </div>
@@ -1051,16 +1077,16 @@
             
             <div class="hero-stats">
                 <div class="hero-stat hero-stat-left">
-                    <div class="hero-stat-number">55+<br><span class="stat-unit">тыс. Га</span></div>
-                    <div class="hero-stat-label">Земельный банк</div>
+                    <div class="hero-stat-number" data-translate="responsibility_ha">55+ <br><span class="stat-unit">тыс. Га</span></div>
+                    <div class="hero-stat-label" data-translate="responsibility_ha_title">Земельный банк</div>
                 </div>
                 <div class="hero-stat hero-stat-center">
-                    <div class="hero-stat-number">20 лет</div>
-                    <div class="hero-stat-label">Средний опыт специалистов</div>
+                    <div class="hero-stat-number" data-translate="responsibility_years">20 лет</div>
+                    <div class="hero-stat-label" data-translate="responsibility_years_title">Средний опыт специалистов</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">100%</div>
-                    <div class="hero-stat-label">Экологические стандарты</div>
+                    <div class="hero-stat-number" data-translate="responsibility_proc">100%</div>
+                    <div class="hero-stat-label" data-translate="responsibility_proc_title">Экологические стандарты</div>
                 </div>
             </div>
         </div>
@@ -1086,17 +1112,17 @@
                         </div>
                     </div>
                     <div class="impact-content">
-                        <p>Реализация проекта имеет значительное социально-экономическое значение и направлена на устойчивое развитие регионов Абайской области. В рамках проекта предусмотрено создание новых рабочих мест на производственных и логистических объектах комплекса, что способствует снижению уровня безработицы и повышению качества жизни местного населения.</p>
+                        <p data-translate="responsibility_impact1">Реализация проекта имеет значительное социально-экономическое значение и направлена на устойчивое развитие регионов Абайской области. В рамках проекта предусмотрено создание новых рабочих мест на производственных и логистических объектах комплекса, что способствует снижению уровня безработицы и повышению качества жизни местного населения.</p>
                         
-                        <p>Одновременно проект обеспечивает устойчивую занятость для более чем 1 000 индивидуальных фермеров и крестьянских хозяйств, вовлечённых в производственно-сбытовую цепочку. Поддержка малых сельскохозяйственных производителей способствует развитию предпринимательской инициативы, повышению производственной культуры и внедрению современных методов ведения хозяйства.</p>
+                        <p data-translate="responsibility_impact2">Одновременно проект обеспечивает устойчивую занятость для более чем 1 000 индивидуальных фермеров и крестьянских хозяйств, вовлечённых в производственно-сбытовую цепочку. Поддержка малых сельскохозяйственных производителей способствует развитию предпринимательской инициативы, повышению производственной культуры и внедрению современных методов ведения хозяйства.</p>
                     </div>
                 </div>
 
                 <div class="impact-text-block reverse">
                     <div class="impact-content">
-                        <p>С учётом социально-экономических особенностей сельскохозяйственных и животноводческих регионов, реализация проекта оказывает позитивный эффект на местные сообщества. Доход, получаемый участниками проекта, обеспечивает финансовую стабильность более чем для 5 000 человек в домохозяйствах, улучшая их доступ к образованию, здравоохранению и базовой инфраструктуре.</p>
+                        <p data-translate="responsibility_impact3">С учётом социально-экономических особенностей сельскохозяйственных и животноводческих регионов, реализация проекта оказывает позитивный эффект на местные сообщества. Доход, получаемый участниками проекта, обеспечивает финансовую стабильность более чем для 5 000 человек в домохозяйствах, улучшая их доступ к образованию, здравоохранению и базовой инфраструктуре.</p>
                         
-                        <p>Компания рассматривает данный проект как долгосрочное партнёрство с сельскими регионами, направленное не только на экономическую эффективность, но и на социальную ответственность. Мы стремимся создавать условия для устойчивого роста, повышения благосостояния населения и укрепления социального потенциала регионов, в которых мы работаем.</p>
+                        <p data-translate="responsibility_impact4">Компания рассматривает данный проект как долгосрочное партнёрство с сельскими регионами, направленное не только на экономическую эффективность, но и на социальную ответственность. Мы стремимся создавать условия для устойчивого роста, повышения благосостояния населения и укрепления социального потенциала регионов, в которых мы работаем.</p>
                     </div>
                     <div class="impact-illustration">
                         <div class="landscape-card">
@@ -1122,42 +1148,42 @@
             <div class="policy-grid">
                 <div class="policy-item">
                     <div class="policy-content">
-                        <h3>Корпоративная этика</h3>
-                        <p>Мы строим бизнес на принципах честности, добросовестности и уважения ко всем заинтересованным сторонам. Каждое решение принимается с учетом этических норм и долгосрочных последствий.</p>
+                        <h3 data-translate="responsibility_etika">Корпоративная этика</h3>
+                        <p data-translate="responsibility_etika_title">Мы строим бизнес на принципах честности, добросовестности и уважения ко всем заинтересованным сторонам. Каждое решение принимается с учетом этических норм и долгосрочных последствий.</p>
                         <ul>
-                            <li>Нулевая терпимость к коррупции и мошенничеству</li>
-                            <li>Прозрачность в деловых операциях и отчетности</li>
-                            <li>Честная конкуренция и соблюдение антимонопольного законодательства</li>
-                            <li>Защита конфиденциальной информации клиентов и партнеров</li>
-                            <li>Этичное взаимодействие с поставщиками и подрядчиками</li>
+                            <li data-translate="responsibility_etika1">Нулевая терпимость к коррупции и мошенничеству</li>
+                            <li data-translate="responsibility_etika2">Прозрачность в деловых операциях и отчетности</li>
+                            <li data-translate="responsibility_etika3">Честная конкуренция и соблюдение антимонопольного законодательства</li>
+                            <li data-translate="responsibility_etika4">Защита конфиденциальной информации клиентов и партнеров</li>
+                            <li data-translate="responsibility_etika5">Этичное взаимодействие с поставщиками и подрядчиками</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="policy-item">
                     <div class="policy-content">
-                        <h3>Качество и безопасность</h3>
-                        <p>Безопасность нашей продукции и производственных процессов является абсолютным приоритетом. Мы применяем международные стандарты контроля качества.</p>
+                        <h3 data-translate="responsibility_kachbez">Качество и безопасность</h3>
+                        <p data-translate="responsibility_kachbez_title">Безопасность нашей продукции и производственных процессов является абсолютным приоритетом. Мы применяем международные стандарты контроля качества.</p>
                         <ul>
-                            <li>Система контроля качества на всех этапах производства</li>
-                            <li>Сертификация по международным стандартам безопасности пищевых продуктов</li>
-                            <li>Лабораторный контроль сырья и готовой продукции</li>
-                            <li>Прослеживаемость продукции от поставщика до потребителя</li>
-                            <li>Быстрое реагирование на любые вопросы качества</li>
+                            <li data-translate="responsibility_kachbez1">Система контроля качества на всех этапах производства</li>
+                            <li data-translate="responsibility_kachbez2">Сертификация по международным стандартам безопасности пищевых продуктов</li>
+                            <li data-translate="responsibility_kachbez3">Лабораторный контроль сырья и готовой продукции</li>
+                            <li data-translate="responsibility_kachbez4">Прослеживаемость продукции от поставщика до потребителя</li>
+                            <li data-translate="responsibility_kachbez5">Быстрое реагирование на любые вопросы качества</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="policy-item">
                     <div class="policy-content">
-                        <h3>Права сотрудников</h3>
-                        <p>Уважение к правам и достоинству каждого сотрудника создает основу для продуктивной и безопасной рабочей среды. Мы обеспечиваем равные возможности для всех.</p>
+                        <h3 data-translate="responsibility_prava">Права сотрудников</h3>
+                        <p data-translate="responsibility_prava_title">Уважение к правам и достоинству каждого сотрудника создает основу для продуктивной и безопасной рабочей среды. Мы обеспечиваем равные возможности для всех.</p>
                         <ul>
-                            <li>Запрет дискриминации по любым признакам</li>
-                            <li>Равная оплата за равный труд</li>
-                            <li>Право на объединение и коллективные переговоры</li>
-                            <li>Защита от домогательств и насилия на рабочем месте</li>
-                            <li>Конфиденциальная система подачи жалоб</li>
+                            <li data-translate="responsibility_prava1">Запрет дискриминации по любым признакам</li>
+                            <li data-translate="responsibility_prava2">Равная оплата за равный труд</li>
+                            <li data-translate="responsibility_prava3">Право на объединение и коллективные переговоры</li>
+                            <li data-translate="responsibility_prava4">Защита от домогательств и насилия на рабочем месте</li>
+                            <li data-translate="responsibility_prava5">Конфиденциальная система подачи жалоб</li>
                         </ul>
                     </div>
                 </div>
@@ -1167,39 +1193,43 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>EURASIA AGRO SEMEY</h3>
-                <p>Высококачественная мясная продукция для Казахстана и мира</p>
-            </div>
-            <div class="footer-section">
-                <h3>О компании</h3>
-                <ul>
-                    <li><a href="main.html">О нас</a></li>
-                    <li><a href="main.html#leadership">Руководство</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Информация</h3>
-                <ul>
-                    <li><a href="ответственность.html">Ответственность</a></li>
-                    <li><a href="Вид деятельности.html">Вид деятельности</a></li>
-                    <li><a href="Новости.html">Новости</a></li>
-                    <li><a href="Вакансии.html">Вакансии</a></li>
-                    <li><a href="Контакты.html">Контакты</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <p>БИН: 160740001659</p>
-                <p>Семей, ул. Сеченова, 6</p>
-                <p>область Абай, Казахстан</p>
-            </div>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>EURASIA AGRO SEMEY</h3>
+            <p data-translate="footer_desc">Высококачественная мясная продукция для Казахстана и мира</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Eurasia Agro Semey. Все права защищены.</p>
+        
+        <div class="footer-section">
+            <h3 data-translate="footer_about">О компании</h3>
+            <ul>
+                <li><a href="index.html#about" data-translate="footer_onass">О нас</a></li>
+                <li><a href="index.html#leadership" data-translate="footer_ruk">Руководство</a></li>
+            </ul>
         </div>
-    </footer>
+
+        <div class="footer-section">
+            <h3 data-translate="footer_info">Информация</h3>
+            <ul>
+                <li><a href="ответственность.html" data-translate="footer_resp">Ответственность</a></li>
+                <li><a href="Вид деятельности.html" data-translate="footer_act">Вид деятельности</a></li>
+                <li><a href="Новости.html" data-translate="footer_news">Новости</a></li>
+                <li><a href="Вакансии.html" data-translate="footer_vac">Вакансии</a></li>
+                <li><a href="Контакты.html" data-translate="footer_cont">Контакты</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3 data-translate="footer_cont">Контакты</h3>
+            <p data-translate="footer_bin">БИН: 160740001659</p>
+            <p data-translate="footer_address">Семей, ул. Сеченова, 6</p>
+            <p data-translate="footer_region">область Абай, Казахстан</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Eurasia Agro Semey. <span data-translate="footer_rights">Все права защищены.</span></p>
+    </div>
+</footer>
 
     <script>
         function toggleMenu() {
